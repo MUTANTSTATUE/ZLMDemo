@@ -7,15 +7,14 @@ Widget::Widget(QWidget *parent)
 {
     ui->setupUi(this);
 
-    Thread = new ffmpegThread(this);
+    Thread = new ffmpegThread();
+
 
 }
 
 Widget::~Widget()
 {
     Thread->stopFFmpge();
-    Thread->quit();
-    Thread->wait();
     delete ui;
 }
 
@@ -23,12 +22,10 @@ void Widget::on_pushButton_clicked(bool checked)
 {
     if(checked)
     {
-        Thread->start();
+        Thread->run();
     }
     else{
         Thread->stopFFmpge();
-        Thread->quit();
-        Thread->wait();
     }
 }
 

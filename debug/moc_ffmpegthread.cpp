@@ -86,7 +86,7 @@ void ffmpegThread::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
 }
 
 QT_INIT_METAOBJECT const QMetaObject ffmpegThread::staticMetaObject = { {
-    QMetaObject::SuperData::link<QThread::staticMetaObject>(),
+    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
     qt_meta_stringdata_ffmpegThread.data,
     qt_meta_data_ffmpegThread,
     qt_static_metacall,
@@ -105,12 +105,12 @@ void *ffmpegThread::qt_metacast(const char *_clname)
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_ffmpegThread.stringdata0))
         return static_cast<void*>(this);
-    return QThread::qt_metacast(_clname);
+    return QWidget::qt_metacast(_clname);
 }
 
 int ffmpegThread::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QThread::qt_metacall(_c, _id, _a);
+    _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {

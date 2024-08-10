@@ -5,21 +5,22 @@
 #include <QThread>
 #include <qwidget.h>
 #include "qdebug.h"
+#include <signal.h>
 
-
-class ffmpegThread :public QThread
+class ffmpegThread :public QWidget
 {
     Q_OBJECT
 public:
-    ffmpegThread(QObject* parent = nullptr);
+    ffmpegThread();
 
     ~ffmpegThread();
 
-protected:
-    void run() override;
+
+    void run();
 
 public slots:
     void stopFFmpge();
+
 private slots:
     void handleOutput();
     void handleError();

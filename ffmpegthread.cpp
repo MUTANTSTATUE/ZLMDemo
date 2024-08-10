@@ -2,11 +2,13 @@
 
 
 
-ffmpegThread::ffmpegThread(QObject *parent):QThread(parent),process(nullptr) {}
+ffmpegThread::ffmpegThread():process(nullptr) {}
 
 ffmpegThread::~ffmpegThread()
 {
-    stopFFmpge();
+    if (process != nullptr) {
+        stopFFmpge();
+    }
 }
 
 void ffmpegThread::run()
@@ -33,13 +35,14 @@ void ffmpegThread::run()
         return;
     }
 
-    process->waitForFinished(-1); // Wait indefinitely until the process finishes
+    /*process->waitForFinished(-1);*/ // Wait indefinitely until the process finishes
 }
 
 void ffmpegThread::stopFFmpge()
 {
     if (process) {
-        process->kill(); // or process->terminate();
+        process->kill();
+        // process->terminate();
         process->waitForFinished();
         delete process;
         process = nullptr;
