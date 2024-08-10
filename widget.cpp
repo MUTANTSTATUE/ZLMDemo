@@ -14,6 +14,8 @@ Widget::Widget(QWidget *parent)
 Widget::~Widget()
 {
     Thread->stopFFmpge();
+    Thread->quit();
+    Thread->wait();
     delete ui;
 }
 
@@ -21,10 +23,12 @@ void Widget::on_pushButton_clicked(bool checked)
 {
     if(checked)
     {
-        Thread->run();
+        Thread->start();
     }
     else{
         Thread->stopFFmpge();
+        Thread->quit();
+        Thread->wait();
     }
 }
 

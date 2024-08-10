@@ -7,7 +7,7 @@
 #include "qdebug.h"
 
 
-class ffmpegThread :public QWidget
+class ffmpegThread :public QThread
 {
     Q_OBJECT
 public:
@@ -15,7 +15,8 @@ public:
 
     ~ffmpegThread();
 
-    void run();
+protected:
+    void run() override;
 
 public slots:
     void stopFFmpge();
