@@ -2,6 +2,7 @@
 #include "VideoDecoder.h"
 #include "qlabel.h"
 #include <QVBoxLayout>
+#include<QHBoxLayout>
 #include <QDebug>
 #include <QResizeEvent>
 
@@ -10,7 +11,7 @@ VideoPlayer::VideoPlayer(QWidget *parent) :
     label(new QLabel(this)),
     decoder(new VideoDecoder(this))
 {
-    QVBoxLayout *layout = new QVBoxLayout(this);
+    QHBoxLayout *layout = new QHBoxLayout(this);
     layout->addWidget(label);
     label->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);  // 使 QLabel 填满整个窗口
 
