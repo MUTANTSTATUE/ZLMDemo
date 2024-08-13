@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <ffmpegthread.h>
+#include<videoplayer.h>
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class Widget;
@@ -18,10 +19,13 @@ public:
     ~Widget();
 
 private slots:
-    void on_pushButton_clicked(bool checked);
+    void on_pushButtonPush_clicked(bool checked);
+
+    void on_pushButtonPlay_clicked();
 
 private:
     Ui::Widget *ui;
     ffmpegThread * Thread;
+    VideoPlayer *playerwidget;
 };
 #endif // WIDGET_H

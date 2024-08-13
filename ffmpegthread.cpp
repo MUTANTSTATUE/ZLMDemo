@@ -56,6 +56,6 @@ void ffmpegThread::handleOutput()
 
 void ffmpegThread::handleError()
 {
-    qDebug()<<"Error: " << process->readAllStandardError();
+    qDebug()<<"output: " << process->readAllStandardError();
 }
 
