@@ -15,17 +15,18 @@ public:
 
     ~ffmpegThread();
 
-
+    void setUrl(const QString& nurl);
     void run();
 
 public slots:
-    void stopFFmpge();
+    void stopFFmpeg();
 
 private slots:
     void handleOutput();
     void handleError();
 private:
     QProcess* process;
+    QString url;
 };
 
 #endif // FFMPEGTHREAD_H

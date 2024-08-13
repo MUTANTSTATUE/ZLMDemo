@@ -199,3 +199,208 @@
 2024-08-13 12:48:36.237 I [MediaServer.exe] [980-event poller 4] RtspSession.cpp:849 handleReq_Play | 2-852(127.0.0.1:1544) 指定播放track:0
 2024-08-13 12:48:50.466 W [MediaServer.exe] [980-event poller 4] RtspSession.cpp:62 onError | 2-852(127.0.0.1:1544) RTSP播放器(__defaultVhost__/live/test)断开:connection reset by peer,耗时(s):14
 2024-08-13 12:48:50.467 I [MediaServer.exe] [980-event poller 4] Rtsp.cpp:438 operator () | return port to pool:31924-31925
+2024-08-13 13:14:36.664 I [MediaServer.exe] [9268-9064] main.cpp:256 start_main | ZLMediaKit(git hash:c904019/2024-08-10T11:12:42+08:00,branch:master,build time:2024-08-10T16:19:13)
+2024-08-13 13:14:36.673 D [MediaServer.exe] [9268-9064] SSLBox.cpp:174 setContext | Add certificate of: default.zlmediakit.com
+2024-08-13 13:14:36.673 D [MediaServer.exe] [9268-stamp thread] util.cpp:366 operator () | Stamp thread started
+2024-08-13 13:14:36.698 I [MediaServer.exe] [9268-9064] EventPoller.cpp:594 EventPollerPool | EventPoller created size: 12
+2024-08-13 13:14:36.699 I [MediaServer.exe] [9268-9064] main.cpp:360 start_main | 已启动http api 接口
+2024-08-13 13:14:36.699 I [MediaServer.exe] [9268-9064] main.cpp:362 start_main | 已启动http hook 接口
+2024-08-13 13:14:36.701 I [MediaServer.exe] [9268-9064] TcpServer.cpp:221 start_l | TCP server listening on [::]: 554
+2024-08-13 13:14:36.703 I [MediaServer.exe] [9268-9064] TcpServer.cpp:221 start_l | TCP server listening on [::]: 332
+2024-08-13 13:14:36.705 I [MediaServer.exe] [9268-9064] TcpServer.cpp:221 start_l | TCP server listening on [::]: 1935
+2024-08-13 13:14:36.707 I [MediaServer.exe] [9268-9064] TcpServer.cpp:221 start_l | TCP server listening on [::]: 19350
+2024-08-13 13:14:36.709 I [MediaServer.exe] [9268-9064] TcpServer.cpp:221 start_l | TCP server listening on [::]: 80
+2024-08-13 13:14:36.711 I [MediaServer.exe] [9268-9064] TcpServer.cpp:221 start_l | TCP server listening on [::]: 443
+2024-08-13 13:14:36.712 I [MediaServer.exe] [9268-9064] TcpServer.cpp:221 start_l | TCP server listening on [::]: 9000
+2024-08-13 13:14:36.714 I [MediaServer.exe] [9268-9064] UdpServer.cpp:123 start_l | UDP server bind to [::]: 10000
+2024-08-13 13:14:36.716 I [MediaServer.exe] [9268-9064] TcpServer.cpp:221 start_l | TCP server listening on [::]: 10000
+2024-08-13 13:14:36.717 I [MediaServer.exe] [9268-9064] UdpServer.cpp:123 start_l | UDP server bind to [::]: 9000
+2024-08-13 13:14:39.940 W [MediaServer.exe] [9268-event poller 3] Factory.cpp:53 getTrackBySdp | Unsupported codec: MP4V-ES
+2024-08-13 13:14:39.965 I [MediaServer.exe] [9268-event poller 3] MediaSource.cpp:476 emitEvent | 媒体注册:rtsp://__defaultVhost__/live/test
+2024-08-13 13:16:19.197 W [MediaServer.exe] [9268-event poller 10] EventPoller.cpp:255 async_l | take time: 16ms, thread may be overloaded
+2024-08-13 13:16:19.197 W [MediaServer.exe] [9268-event poller 8] EventPoller.cpp:255 async_l | take time: 16ms, thread may be overloaded
+2024-08-13 13:16:49.982 W [MediaServer.exe] [9268-event poller 3] RtspSession.cpp:62 onError | 1-848(127.0.0.1:1958) RTSP推流器(__defaultVhost__/live/test)断开:connection reset by peer,耗时(s):130
+2024-08-13 13:17:04.996 I [MediaServer.exe] [9268-event poller 3] MediaSource.cpp:476 emitEvent | 媒体注销:rtsp://__defaultVhost__/live/test
+2024-08-13 13:17:15.866 D [MediaServer.exe] [9268-event poller 3] MediaSink.cpp:162 emitAllTrackReady | All track ready use 616ms
+2024-08-13 13:17:15.867 I [MediaServer.exe] [9268-event poller 3] MediaSource.cpp:476 emitEvent | 媒体注册:fmp4://__defaultVhost__/live/test
+2024-08-13 13:17:15.867 I [MediaServer.exe] [9268-event poller 3] MultiMediaSourceMuxer.cpp:562 onAllTrackReady | stream: rtsp://127.0.0.1:554/live/test , codec info: H264[2560/1440/30] mpeg4-generic[8000/1/16] 
+2024-08-13 13:17:15.867 I [MediaServer.exe] [9268-event poller 3] MediaSource.cpp:476 emitEvent | 媒体注册:rtmp://__defaultVhost__/live/test
+2024-08-13 13:17:15.868 I [MediaServer.exe] [9268-event poller 3] MediaSource.cpp:476 emitEvent | 媒体注册:ts://__defaultVhost__/live/test
+2024-08-13 13:17:15.868 I [MediaServer.exe] [9268-event poller 3] MediaSource.cpp:476 emitEvent | 媒体注册:rtsp://__defaultVhost__/live/test
+2024-08-13 13:17:24.235 I [MediaServer.exe] [9268-event poller 3] MediaSource.cpp:476 emitEvent | 媒体注册:hls://__defaultVhost__/live/test
+2024-08-13 13:17:26.920 I [MediaServer.exe] [9268-event poller 9] Rtsp.cpp:429 getPortPair | got port from pool:31542-31543
+2024-08-13 13:17:26.928 I [MediaServer.exe] [9268-event poller 9] RtspSession.cpp:819 handleReq_Play | 3-860(127.0.0.1:2035) rtsp seekTo(ms):0
+2024-08-13 13:17:26.928 I [MediaServer.exe] [9268-event poller 9] RtspSession.cpp:849 handleReq_Play | 3-860(127.0.0.1:2035) 指定播放track:0
+2024-08-13 13:17:30.057 W [MediaServer.exe] [9268-event poller 3] EventPoller.cpp:255 async_l | take time: 16ms, thread may be overloaded
+2024-08-13 13:17:35.336 W [MediaServer.exe] [9268-event poller 3] EventPoller.cpp:255 async_l | take time: 16ms, thread may be overloaded
+2024-08-13 13:17:39.393 W [MediaServer.exe] [9268-event poller 3] EventPoller.cpp:255 async_l | take time: 16ms, thread may be overloaded
+2024-08-13 13:17:49.947 W [MediaServer.exe] [9268-event poller 9] RtspSession.cpp:62 onError | 3-860(127.0.0.1:2035) RTSP播放器(__defaultVhost__/live/test)断开:connection reset by peer,耗时(s):23
+2024-08-13 13:17:49.947 I [MediaServer.exe] [9268-event poller 9] Rtsp.cpp:438 operator () | return port to pool:31542-31543
+2024-08-13 13:19:36.697 W [MediaServer.exe] [9268-event poller 0] EventPoller.cpp:255 async_l | take time: 16ms, thread may be overloaded
+2024-08-13 13:19:52.268 W [MediaServer.exe] [9268-event poller 10] EventPoller.cpp:255 async_l | take time: 17ms, thread may be overloaded
+2024-08-13 13:19:52.268 W [MediaServer.exe] [9268-event poller 8] EventPoller.cpp:255 async_l | take time: 17ms, thread may be overloaded
+2024-08-13 13:21:38.367 W [MediaServer.exe] [9268-event poller 5] RtspSession.cpp:62 onError | 4-1340(127.0.0.1:2128) RTSP播放器(__defaultVhost__/live/test)断开:ANNOUNCE: Already publishing:__defaultVhost__/live/test,耗时(s):0
+2024-08-13 13:21:38.718 I [MediaServer.exe] [9268-event poller 1] Rtsp.cpp:429 getPortPair | got port from pool:32858-32859
+2024-08-13 13:21:38.726 I [MediaServer.exe] [9268-event poller 1] RtspSession.cpp:819 handleReq_Play | 5-1280(127.0.0.1:2129) rtsp seekTo(ms):0
+2024-08-13 13:21:38.727 I [MediaServer.exe] [9268-event poller 1] RtspSession.cpp:849 handleReq_Play | 5-1280(127.0.0.1:2129) 指定播放track:0
+2024-08-13 13:21:44.693 W [MediaServer.exe] [9268-event poller 1] EventPoller.cpp:255 async_l | take time: 16ms, thread may be overloaded
+2024-08-13 13:21:48.368 W [MediaServer.exe] [9268-event poller 1] EventPoller.cpp:255 async_l | take time: 15ms, thread may be overloaded
+2024-08-13 13:21:51.960 W [MediaServer.exe] [9268-event poller 3] EventPoller.cpp:255 async_l | take time: 16ms, thread may be overloaded
+2024-08-13 13:21:59.793 W [MediaServer.exe] [9268-event poller 1] RtspSession.cpp:62 onError | 5-1280(127.0.0.1:2129) RTSP播放器(__defaultVhost__/live/test)断开:recv teardown request,耗时(s):21
+2024-08-13 13:21:59.793 I [MediaServer.exe] [9268-event poller 1] Rtsp.cpp:438 operator () | return port to pool:32858-32859
+2024-08-13 13:23:29.735 W [MediaServer.exe] [9268-event poller 0] RtspSession.cpp:62 onError | 6-856(127.0.0.1:2154) RTSP播放器(__defaultVhost__/live/test)断开:ANNOUNCE: Already publishing:__defaultVhost__/live/test,耗时(s):0
+2024-08-13 13:23:41.364 I [MediaServer.exe] [17384-19324] main.cpp:256 start_main | ZLMediaKit(git hash:c904019/2024-08-10T11:12:42+08:00,branch:master,build time:2024-08-10T16:19:13)
+2024-08-13 13:23:41.373 D [MediaServer.exe] [17384-19324] SSLBox.cpp:174 setContext | Add certificate of: default.zlmediakit.com
+2024-08-13 13:23:41.373 D [MediaServer.exe] [17384-stamp thread] util.cpp:366 operator () | Stamp thread started
+2024-08-13 13:23:41.398 I [MediaServer.exe] [17384-19324] EventPoller.cpp:594 EventPollerPool | EventPoller created size: 12
+2024-08-13 13:23:41.399 I [MediaServer.exe] [17384-19324] main.cpp:360 start_main | 已启动http api 接口
+2024-08-13 13:23:41.399 I [MediaServer.exe] [17384-19324] main.cpp:362 start_main | 已启动http hook 接口
+2024-08-13 13:23:41.401 I [MediaServer.exe] [17384-19324] TcpServer.cpp:221 start_l | TCP server listening on [::]: 554
+2024-08-13 13:23:41.403 I [MediaServer.exe] [17384-19324] TcpServer.cpp:221 start_l | TCP server listening on [::]: 332
+2024-08-13 13:23:41.405 I [MediaServer.exe] [17384-19324] TcpServer.cpp:221 start_l | TCP server listening on [::]: 1935
+2024-08-13 13:23:41.407 I [MediaServer.exe] [17384-19324] TcpServer.cpp:221 start_l | TCP server listening on [::]: 19350
+2024-08-13 13:23:41.409 I [MediaServer.exe] [17384-19324] TcpServer.cpp:221 start_l | TCP server listening on [::]: 80
+2024-08-13 13:23:41.410 I [MediaServer.exe] [17384-19324] TcpServer.cpp:221 start_l | TCP server listening on [::]: 443
+2024-08-13 13:23:41.412 I [MediaServer.exe] [17384-19324] TcpServer.cpp:221 start_l | TCP server listening on [::]: 9000
+2024-08-13 13:23:41.414 I [MediaServer.exe] [17384-19324] UdpServer.cpp:123 start_l | UDP server bind to [::]: 10000
+2024-08-13 13:23:41.416 I [MediaServer.exe] [17384-19324] TcpServer.cpp:221 start_l | TCP server listening on [::]: 10000
+2024-08-13 13:23:41.417 I [MediaServer.exe] [17384-19324] UdpServer.cpp:123 start_l | UDP server bind to [::]: 9000
+2024-08-13 13:23:43.169 D [MediaServer.exe] [17384-event poller 11] MediaSink.cpp:162 emitAllTrackReady | All track ready use 620ms
+2024-08-13 13:23:43.170 I [MediaServer.exe] [17384-event poller 11] MediaSource.cpp:476 emitEvent | 媒体注册:fmp4://__defaultVhost__/live/test
+2024-08-13 13:23:43.170 I [MediaServer.exe] [17384-event poller 11] MultiMediaSourceMuxer.cpp:562 onAllTrackReady | stream: rtsp://127.0.0.1:554/live/test , codec info: H264[2560/1440/30] mpeg4-generic[8000/1/16] 
+2024-08-13 13:23:43.170 I [MediaServer.exe] [17384-event poller 11] MediaSource.cpp:476 emitEvent | 媒体注册:rtmp://__defaultVhost__/live/test
+2024-08-13 13:23:43.170 I [MediaServer.exe] [17384-event poller 11] MediaSource.cpp:476 emitEvent | 媒体注册:ts://__defaultVhost__/live/test
+2024-08-13 13:23:43.170 I [MediaServer.exe] [17384-event poller 11] MediaSource.cpp:476 emitEvent | 媒体注册:rtsp://__defaultVhost__/live/test
+2024-08-13 13:23:44.137 W [MediaServer.exe] [17384-event poller 11] RtspSession.cpp:62 onError | 1-848(127.0.0.1:2180) RTSP推流器(__defaultVhost__/live/test)断开:connection reset by peer,耗时(s):1
+2024-08-13 13:23:45.934 W [MediaServer.exe] [17384-event poller 9] H264Rtp.cpp:51 inputRtp | start drop h264 gop, last seq:1115, rtp:
+version:2
+padding:0
+ext:0
+csrc:0
+mark:0
+pt:96
+seq:543
+stamp:1953014735
+ssrc:994920679
+rtp size:625
+payload offset:0
+payload size:613
+
+2024-08-13 13:23:45.935 I [MediaServer.exe] [17384-event poller 9] H264Rtp.cpp:185 outputFrame | new gop received, rtp:
+version:2
+padding:0
+ext:0
+csrc:0
+mark:1
+pt:96
+seq:614
+stamp:1953014735
+ssrc:994920679
+rtp size:807
+payload offset:0
+payload size:795
+
+2024-08-13 13:23:54.341 W [MediaServer.exe] [17384-event poller 9] MultiMediaSourceMuxer.cpp:457 getOwnerPoller | OwnerPoller changed event poller 11 -> event poller 9 : rtsp://127.0.0.1:554/live/test
+2024-08-13 13:23:54.341 I [MediaServer.exe] [17384-event poller 9] MediaSource.cpp:476 emitEvent | 媒体注册:hls://__defaultVhost__/live/test
+2024-08-13 13:24:00.429 I [MediaServer.exe] [17384-event poller 6] Rtsp.cpp:429 getPortPair | got port from pool:34776-34777
+2024-08-13 13:24:00.436 I [MediaServer.exe] [17384-event poller 6] RtspSession.cpp:819 handleReq_Play | 3-860(127.0.0.1:2184) rtsp seekTo(ms):0
+2024-08-13 13:24:00.436 I [MediaServer.exe] [17384-event poller 6] RtspSession.cpp:849 handleReq_Play | 3-860(127.0.0.1:2184) 指定播放track:0
+2024-08-13 13:24:03.501 W [MediaServer.exe] [17384-event poller 9] EventPoller.cpp:255 async_l | take time: 17ms, thread may be overloaded
+2024-08-13 13:24:10.233 W [MediaServer.exe] [17384-event poller 9] EventPoller.cpp:255 async_l | take time: 12ms, thread may be overloaded
+2024-08-13 13:24:15.942 W [MediaServer.exe] [17384-event poller 6] EventPoller.cpp:255 async_l | take time: 16ms, thread may be overloaded
+2024-08-13 13:24:20.259 W [MediaServer.exe] [17384-event poller 9] EventPoller.cpp:255 async_l | take time: 16ms, thread may be overloaded
+2024-08-13 13:24:22.611 W [MediaServer.exe] [17384-event poller 9] RtspSession.cpp:62 onError | 2-848(127.0.0.1:2181) RTSP推流器(__defaultVhost__/live/test)断开:connection reset by peer,耗时(s):37
+2024-08-13 13:27:09.864 I [MediaServer.exe] [13212-10524] main.cpp:256 start_main | ZLMediaKit(git hash:c904019/2024-08-10T11:12:42+08:00,branch:master,build time:2024-08-10T16:19:13)
+2024-08-13 13:27:09.873 D [MediaServer.exe] [13212-10524] SSLBox.cpp:174 setContext | Add certificate of: default.zlmediakit.com
+2024-08-13 13:27:09.873 D [MediaServer.exe] [13212-stamp thread] util.cpp:366 operator () | Stamp thread started
+2024-08-13 13:27:09.898 I [MediaServer.exe] [13212-10524] EventPoller.cpp:594 EventPollerPool | EventPoller created size: 12
+2024-08-13 13:27:09.899 I [MediaServer.exe] [13212-10524] main.cpp:360 start_main | 已启动http api 接口
+2024-08-13 13:27:09.899 I [MediaServer.exe] [13212-10524] main.cpp:362 start_main | 已启动http hook 接口
+2024-08-13 13:27:09.901 I [MediaServer.exe] [13212-10524] TcpServer.cpp:221 start_l | TCP server listening on [::]: 554
+2024-08-13 13:27:09.903 I [MediaServer.exe] [13212-10524] TcpServer.cpp:221 start_l | TCP server listening on [::]: 332
+2024-08-13 13:27:09.905 I [MediaServer.exe] [13212-10524] TcpServer.cpp:221 start_l | TCP server listening on [::]: 1935
+2024-08-13 13:27:09.907 I [MediaServer.exe] [13212-10524] TcpServer.cpp:221 start_l | TCP server listening on [::]: 19350
+2024-08-13 13:27:09.909 I [MediaServer.exe] [13212-10524] TcpServer.cpp:221 start_l | TCP server listening on [::]: 80
+2024-08-13 13:27:09.911 I [MediaServer.exe] [13212-10524] TcpServer.cpp:221 start_l | TCP server listening on [::]: 443
+2024-08-13 13:27:09.913 I [MediaServer.exe] [13212-10524] TcpServer.cpp:221 start_l | TCP server listening on [::]: 9000
+2024-08-13 13:27:09.914 I [MediaServer.exe] [13212-10524] UdpServer.cpp:123 start_l | UDP server bind to [::]: 10000
+2024-08-13 13:27:09.916 I [MediaServer.exe] [13212-10524] TcpServer.cpp:221 start_l | TCP server listening on [::]: 10000
+2024-08-13 13:27:09.917 I [MediaServer.exe] [13212-10524] UdpServer.cpp:123 start_l | UDP server bind to [::]: 9000
+2024-08-13 13:27:13.230 D [MediaServer.exe] [13212-event poller 5] MediaSink.cpp:162 emitAllTrackReady | All track ready use 629ms
+2024-08-13 13:27:13.230 I [MediaServer.exe] [13212-event poller 5] MediaSource.cpp:476 emitEvent | 媒体注册:fmp4://__defaultVhost__/live/test
+2024-08-13 13:27:13.230 I [MediaServer.exe] [13212-event poller 5] MultiMediaSourceMuxer.cpp:562 onAllTrackReady | stream: rtsp://127.0.0.1:554/live/test , codec info: H264[2560/1440/30] mpeg4-generic[8000/1/16] 
+2024-08-13 13:27:13.231 I [MediaServer.exe] [13212-event poller 5] MediaSource.cpp:476 emitEvent | 媒体注册:rtmp://__defaultVhost__/live/test
+2024-08-13 13:27:13.231 I [MediaServer.exe] [13212-event poller 5] MediaSource.cpp:476 emitEvent | 媒体注册:ts://__defaultVhost__/live/test
+2024-08-13 13:27:13.231 I [MediaServer.exe] [13212-event poller 5] MediaSource.cpp:476 emitEvent | 媒体注册:rtsp://__defaultVhost__/live/test
+2024-08-13 13:27:19.363 I [MediaServer.exe] [13212-event poller 8] Rtsp.cpp:429 getPortPair | got port from pool:30004-30005
+2024-08-13 13:27:19.368 I [MediaServer.exe] [13212-event poller 8] RtspSession.cpp:819 handleReq_Play | 2-864(127.0.0.1:2240) rtsp seekTo(ms):0
+2024-08-13 13:27:19.369 I [MediaServer.exe] [13212-event poller 8] RtspSession.cpp:849 handleReq_Play | 2-864(127.0.0.1:2240) 指定播放track:0
+2024-08-13 13:27:19.964 W [MediaServer.exe] [13212-event poller 9] EventPoller.cpp:255 async_l | take time: 17ms, thread may be overloaded
+2024-08-13 13:27:20.199 W [MediaServer.exe] [13212-event poller 5] EventPoller.cpp:255 async_l | take time: 14ms, thread may be overloaded
+2024-08-13 13:27:20.341 W [MediaServer.exe] [13212-event poller 5] EventPoller.cpp:255 async_l | take time: 17ms, thread may be overloaded
+2024-08-13 13:27:21.626 I [MediaServer.exe] [13212-event poller 5] MediaSource.cpp:476 emitEvent | 媒体注册:hls://__defaultVhost__/live/test
+2024-08-13 13:27:22.459 W [MediaServer.exe] [13212-event poller 5] EventPoller.cpp:255 async_l | take time: 16ms, thread may be overloaded
+2024-08-13 13:27:24.417 W [MediaServer.exe] [13212-event poller 5] EventPoller.cpp:255 async_l | take time: 8ms, thread may be overloaded
+2024-08-13 13:27:28.131 W [MediaServer.exe] [13212-event poller 5] EventPoller.cpp:255 async_l | take time: 10ms, thread may be overloaded
+2024-08-13 13:27:28.225 W [MediaServer.exe] [13212-event poller 5] EventPoller.cpp:255 async_l | take time: 16ms, thread may be overloaded
+2024-08-13 13:27:30.267 W [MediaServer.exe] [13212-event poller 5] EventPoller.cpp:255 async_l | take time: 14ms, thread may be overloaded
+2024-08-13 13:27:30.947 W [MediaServer.exe] [13212-event poller 5] EventPoller.cpp:255 async_l | take time: 15ms, thread may be overloaded
+2024-08-13 13:27:41.205 W [MediaServer.exe] [13212-event poller 5] RtspSession.cpp:62 onError | 1-856(127.0.0.1:2239) RTSP推流器(__defaultVhost__/live/test)断开:connection reset by peer,耗时(s):28
+2024-08-13 13:27:56.203 I [MediaServer.exe] [13212-event poller 5] MediaSource.cpp:476 emitEvent | 媒体注销:hls://__defaultVhost__/live/test
+2024-08-13 13:27:56.204 I [MediaServer.exe] [13212-event poller 5] MediaSource.cpp:476 emitEvent | 媒体注销:ts://__defaultVhost__/live/test
+2024-08-13 13:27:56.204 I [MediaServer.exe] [13212-event poller 5] MediaSource.cpp:476 emitEvent | 媒体注销:rtmp://__defaultVhost__/live/test
+2024-08-13 13:27:56.204 I [MediaServer.exe] [13212-event poller 5] MediaSource.cpp:476 emitEvent | 媒体注销:fmp4://__defaultVhost__/live/test
+2024-08-13 13:27:56.205 I [MediaServer.exe] [13212-event poller 5] MediaSource.cpp:476 emitEvent | 媒体注销:rtsp://__defaultVhost__/live/test
+2024-08-13 13:27:56.205 W [MediaServer.exe] [13212-event poller 8] RtspSession.cpp:62 onError | 2-864(127.0.0.1:2240) RTSP播放器(__defaultVhost__/live/test)断开:rtsp ring buffer detached,耗时(s):36
+2024-08-13 13:27:56.205 I [MediaServer.exe] [13212-event poller 8] Rtsp.cpp:438 operator () | return port to pool:30004-30005
+2024-08-13 13:30:38.560 D [MediaServer.exe] [13212-event poller 0] MediaSink.cpp:162 emitAllTrackReady | All track ready use 623ms
+2024-08-13 13:30:38.560 I [MediaServer.exe] [13212-event poller 0] MediaSource.cpp:476 emitEvent | 媒体注册:fmp4://__defaultVhost__/live/test
+2024-08-13 13:30:38.560 I [MediaServer.exe] [13212-event poller 0] MultiMediaSourceMuxer.cpp:562 onAllTrackReady | stream: rtsp://127.0.0.3:554/live/test , codec info: H264[2560/1440/30] mpeg4-generic[8000/1/16] 
+2024-08-13 13:30:38.560 I [MediaServer.exe] [13212-event poller 0] MediaSource.cpp:476 emitEvent | 媒体注册:rtmp://__defaultVhost__/live/test
+2024-08-13 13:30:38.561 I [MediaServer.exe] [13212-event poller 0] MediaSource.cpp:476 emitEvent | 媒体注册:ts://__defaultVhost__/live/test
+2024-08-13 13:30:38.561 I [MediaServer.exe] [13212-event poller 0] MediaSource.cpp:476 emitEvent | 媒体注册:rtsp://__defaultVhost__/live/test
+2024-08-13 13:30:41.906 I [MediaServer.exe] [13212-event poller 1] Rtsp.cpp:429 getPortPair | got port from pool:32406-32407
+2024-08-13 13:30:41.912 I [MediaServer.exe] [13212-event poller 1] RtspSession.cpp:819 handleReq_Play | 4-888(127.0.0.1:2290) rtsp seekTo(ms):0
+2024-08-13 13:30:41.913 I [MediaServer.exe] [13212-event poller 1] RtspSession.cpp:849 handleReq_Play | 4-888(127.0.0.1:2290) 指定播放track:0
+2024-08-13 13:30:44.285 W [MediaServer.exe] [13212-event poller 0] EventPoller.cpp:255 async_l | take time: 16ms, thread may be overloaded
+2024-08-13 13:30:46.973 I [MediaServer.exe] [13212-event poller 0] MediaSource.cpp:476 emitEvent | 媒体注册:hls://__defaultVhost__/live/test
+2024-08-13 13:30:48.827 W [MediaServer.exe] [13212-event poller 0] EventPoller.cpp:255 async_l | take time: 16ms, thread may be overloaded
+2024-08-13 13:30:49.476 W [MediaServer.exe] [13212-event poller 0] EventPoller.cpp:255 async_l | take time: 16ms, thread may be overloaded
+2024-08-13 13:31:03.989 W [MediaServer.exe] [13212-event poller 0] RtspSession.cpp:62 onError | 3-884(127.0.0.1:2289) RTSP推流器(__defaultVhost__/live/test)断开:connection reset by peer,耗时(s):26
+2024-08-13 13:31:18.991 I [MediaServer.exe] [13212-event poller 0] MediaSource.cpp:476 emitEvent | 媒体注销:hls://__defaultVhost__/live/test
+2024-08-13 13:31:18.991 I [MediaServer.exe] [13212-event poller 0] MediaSource.cpp:476 emitEvent | 媒体注销:ts://__defaultVhost__/live/test
+2024-08-13 13:31:18.992 I [MediaServer.exe] [13212-event poller 0] MediaSource.cpp:476 emitEvent | 媒体注销:rtmp://__defaultVhost__/live/test
+2024-08-13 13:31:18.992 I [MediaServer.exe] [13212-event poller 0] MediaSource.cpp:476 emitEvent | 媒体注销:fmp4://__defaultVhost__/live/test
+2024-08-13 13:31:18.992 I [MediaServer.exe] [13212-event poller 0] MediaSource.cpp:476 emitEvent | 媒体注销:rtsp://__defaultVhost__/live/test
+2024-08-13 13:31:18.992 W [MediaServer.exe] [13212-event poller 1] RtspSession.cpp:62 onError | 4-888(127.0.0.1:2290) RTSP播放器(__defaultVhost__/live/test)断开:rtsp ring buffer detached,耗时(s):37
+2024-08-13 13:31:18.993 I [MediaServer.exe] [13212-event poller 1] Rtsp.cpp:438 operator () | return port to pool:32406-32407
+2024-08-13 13:32:09.907 W [MediaServer.exe] [13212-event poller 0] EventPoller.cpp:255 async_l | take time: 16ms, thread may be overloaded
+2024-08-13 13:35:09.936 I [MediaServer.exe] [8208-6868] main.cpp:256 start_main | ZLMediaKit(git hash:c904019/2024-08-10T11:12:42+08:00,branch:master,build time:2024-08-10T16:19:13)
+2024-08-13 13:35:09.946 D [MediaServer.exe] [8208-6868] SSLBox.cpp:174 setContext | Add certificate of: default.zlmediakit.com
+2024-08-13 13:35:09.946 D [MediaServer.exe] [8208-stamp thread] util.cpp:366 operator () | Stamp thread started
+2024-08-13 13:35:09.970 I [MediaServer.exe] [8208-6868] EventPoller.cpp:594 EventPollerPool | EventPoller created size: 12
+2024-08-13 13:35:09.971 I [MediaServer.exe] [8208-6868] main.cpp:360 start_main | 已启动http api 接口
+2024-08-13 13:35:09.971 I [MediaServer.exe] [8208-6868] main.cpp:362 start_main | 已启动http hook 接口
+2024-08-13 13:35:09.973 I [MediaServer.exe] [8208-6868] TcpServer.cpp:221 start_l | TCP server listening on [::]: 554
+2024-08-13 13:35:09.975 I [MediaServer.exe] [8208-6868] TcpServer.cpp:221 start_l | TCP server listening on [::]: 332
+2024-08-13 13:35:09.977 I [MediaServer.exe] [8208-6868] TcpServer.cpp:221 start_l | TCP server listening on [::]: 1935
+2024-08-13 13:35:09.979 I [MediaServer.exe] [8208-6868] TcpServer.cpp:221 start_l | TCP server listening on [::]: 19350
+2024-08-13 13:35:09.980 I [MediaServer.exe] [8208-6868] TcpServer.cpp:221 start_l | TCP server listening on [::]: 80
+2024-08-13 13:35:09.982 I [MediaServer.exe] [8208-6868] TcpServer.cpp:221 start_l | TCP server listening on [::]: 443
+2024-08-13 13:35:09.984 I [MediaServer.exe] [8208-6868] TcpServer.cpp:221 start_l | TCP server listening on [::]: 9000
+2024-08-13 13:35:09.985 I [MediaServer.exe] [8208-6868] UdpServer.cpp:123 start_l | UDP server bind to [::]: 10000
+2024-08-13 13:35:09.987 I [MediaServer.exe] [8208-6868] TcpServer.cpp:221 start_l | TCP server listening on [::]: 10000
+2024-08-13 13:35:09.988 I [MediaServer.exe] [8208-6868] UdpServer.cpp:123 start_l | UDP server bind to [::]: 9000
+2024-08-13 13:35:51.901 W [MediaServer.exe] [8208-event poller 8] RtspSession.cpp:62 onError | 1-852(127.0.0.1:2500) RTSP播放器(__defaultVhost__/live/test)断开:no such stream:__defaultVhost__/live/test,耗时(s):15
+2024-08-13 13:36:35.258 D [MediaServer.exe] [8208-event poller 10] MediaSink.cpp:162 emitAllTrackReady | All track ready use 607ms
+2024-08-13 13:36:35.259 I [MediaServer.exe] [8208-event poller 10] MediaSource.cpp:476 emitEvent | 媒体注册:fmp4://__defaultVhost__/live/test
+2024-08-13 13:36:35.259 I [MediaServer.exe] [8208-event poller 10] MultiMediaSourceMuxer.cpp:562 onAllTrackReady | stream: rtsp://127.0.0.1:554/live/test , codec info: H264[2560/1440/30] mpeg4-generic[8000/1/16] 
+2024-08-13 13:36:35.259 I [MediaServer.exe] [8208-event poller 10] MediaSource.cpp:476 emitEvent | 媒体注册:rtmp://__defaultVhost__/live/test
+2024-08-13 13:36:35.260 I [MediaServer.exe] [8208-event poller 10] MediaSource.cpp:476 emitEvent | 媒体注册:ts://__defaultVhost__/live/test
+2024-08-13 13:36:35.260 I [MediaServer.exe] [8208-event poller 10] MediaSource.cpp:476 emitEvent | 媒体注册:rtsp://__defaultVhost__/live/test
+2024-08-13 13:36:37.886 I [MediaServer.exe] [8208-event poller 3] Rtsp.cpp:429 getPortPair | got port from pool:34052-34053
+2024-08-13 13:36:37.895 I [MediaServer.exe] [8208-event poller 3] RtspSession.cpp:819 handleReq_Play | 3-872(127.0.0.1:2613) rtsp seekTo(ms):0
+2024-08-13 13:36:37.895 I [MediaServer.exe] [8208-event poller 3] RtspSession.cpp:849 handleReq_Play | 3-872(127.0.0.1:2613) 指定播放track:0
+2024-08-13 13:36:41.007 W [MediaServer.exe] [8208-event poller 10] EventPoller.cpp:255 async_l | take time: 16ms, thread may be overloaded
+2024-08-13 13:36:43.656 I [MediaServer.exe] [8208-event poller 10] MediaSource.cpp:476 emitEvent | 媒体注册:hls://__defaultVhost__/live/test
+2024-08-13 13:36:58.791 W [MediaServer.exe] [8208-event poller 10] RtspSession.cpp:62 onError | 2-856(127.0.0.1:2612) RTSP推流器(__defaultVhost__/live/test)断开:connection reset by peer,耗时(s):24

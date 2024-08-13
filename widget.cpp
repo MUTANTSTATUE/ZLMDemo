@@ -19,7 +19,7 @@ Widget::Widget(QWidget *parent)
 
 Widget::~Widget()
 {
-    Thread->stopFFmpge();
+    Thread->stopFFmpeg();
     delete ui;
 }
 
@@ -27,10 +27,11 @@ void Widget::on_pushButtonPush_clicked(bool checked)
 {
     if(checked)
     {
+        Thread->setUrl(ui->lineEditPushUrl->text());
         Thread->run();
     }
     else{
-        Thread->stopFFmpge();
+        Thread->stopFFmpeg();
     }
 }
 

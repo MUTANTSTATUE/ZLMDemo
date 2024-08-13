@@ -52,22 +52,28 @@ OBJECTS_DIR   = debug
 
 SOURCES       = ffmpegthread.cpp \
 		main.cpp \
+		videodecoder.cpp \
 		videoplayer.cpp \
 		widget.cpp debug\moc_ffmpegthread.cpp \
+		debug\moc_videodecoder.cpp \
 		debug\moc_videoplayer.cpp \
 		debug\moc_widget.cpp
 OBJECTS       = debug\ffmpegthread.obj \
 		debug\main.obj \
+		debug\videodecoder.obj \
 		debug\videoplayer.obj \
 		debug\widget.obj \
 		debug\moc_ffmpegthread.obj \
+		debug\moc_videodecoder.obj \
 		debug\moc_videoplayer.obj \
 		debug\moc_widget.obj
 
 DIST          =  ffmpegthread.h \
+		videodecoder.h \
 		videoplayer.h \
 		widget.h ffmpegthread.cpp \
 		main.cpp \
+		videodecoder.cpp \
 		videoplayer.cpp \
 		widget.cpp
 QMAKE_TARGET  = ZLMDemo
@@ -126,7 +132,7 @@ all: Makefile.Debug  debug\ZLMDemo.exe
 
 debug\ZLMDemo.exe: D:\Qt\ZLMDemo\3rd\ZLMediaKit\mk_apid.lib D:\Qt\ZLMDemo\3rd\ffmpeg\lib\avcodec.lib S:\Qt\5.15.2\msvc2019_64\lib\Qt5Multimediad.lib S:\Qt\5.15.2\msvc2019_64\lib\Qt5Widgetsd.lib S:\Qt\5.15.2\msvc2019_64\lib\Qt5Guid.lib S:\Qt\5.15.2\msvc2019_64\lib\Qt5Networkd.lib S:\Qt\5.15.2\msvc2019_64\lib\Qt5Cored.lib S:\Qt\5.15.2\msvc2019_64\lib\qtmaind.lib ui_widget.h $(OBJECTS) 
 	$(LINKER) $(LFLAGS) /MANIFEST:embed /OUT:$(DESTDIR_TARGET) @<<
-debug\ffmpegthread.obj debug\main.obj debug\videoplayer.obj debug\widget.obj debug\moc_ffmpegthread.obj debug\moc_videoplayer.obj debug\moc_widget.obj
+debug\ffmpegthread.obj debug\main.obj debug\videodecoder.obj debug\videoplayer.obj debug\widget.obj debug\moc_ffmpegthread.obj debug\moc_videodecoder.obj debug\moc_videoplayer.obj debug\moc_widget.obj
 $(LIBS)
 <<
 
@@ -136,10 +142,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) ZLMDemo.zip $(SOURCES) $(DIST) ZLMDemo.pro S:\Qt\5.15.2\msvc2019_64\mkspecs\features\spec_pre.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\common\angle.conf S:\Qt\5.15.2\msvc2019_64\mkspecs\common\windows-desktop.conf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\win32\windows_vulkan_sdk.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\common\windows-vulkan.conf S:\Qt\5.15.2\msvc2019_64\mkspecs\common\msvc-desktop.conf S:\Qt\5.15.2\msvc2019_64\mkspecs\qconfig.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3danimation.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3danimation_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dcore.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dcore_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dextras.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dextras_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dinput.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dinput_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dlogic.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dlogic_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquick.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquick_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquickanimation.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquickanimation_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquickextras.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquickextras_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquickinput.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquickinput_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquickrender.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquickrender_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquickscene2d.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquickscene2d_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3drender.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3drender_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_accessibility_support_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_axbase.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_axbase_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_axcontainer.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_axcontainer_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_axserver.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_axserver_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_bluetooth.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_bluetooth_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_bootstrap_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_concurrent.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_concurrent_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_core.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_core_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_dbus.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_dbus_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_designer.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_designer_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_designercomponents_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_edid_support_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_egl_support_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_fb_support_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_gamepad.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_gamepad_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_gui.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_gui_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_help.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_help_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_location.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_location_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_multimedia.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_multimedia_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_multimediawidgets.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_network.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_network_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_nfc.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_nfc_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_opengl.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_opengl_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_openglextensions.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_openglextensions_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_packetprotocol_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_positioning.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_positioning_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_positioningquick.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_positioningquick_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_printsupport.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_printsupport_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_qml.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_qml_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_qmldebug_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_qmldevtools_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_qmlmodels.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_qmlmodels_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_qmltest.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_qmltest_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_qmlworkerscript.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_quick.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_quick_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_quickparticles_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_quickshapes_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_quicktemplates2.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_quickwidgets.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_quickwidgets_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_remoteobjects.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_remoteobjects_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_repparser.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_repparser_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_scxml.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_scxml_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_sensors.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_sensors_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_serialbus.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_serialbus_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_serialport.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_serialport_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_sql.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_sql_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_svg.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_svg_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_testlib.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_testlib_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_texttospeech.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_texttospeech_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_theme_support_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_uiplugin.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_uitools.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_uitools_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_vulkan_support_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_webchannel.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_webchannel_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_websockets.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_websockets_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_webview.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_webview_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_widgets.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_widgets_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_winextras.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_winextras_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_xml.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_xml_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_xmlpatterns.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_zlib_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\features\qt_functions.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\qt_config.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\win32-msvc\qmake.conf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\spec_post.prf .qmake.stash S:\Qt\5.15.2\msvc2019_64\mkspecs\features\exclusive_builds.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\common\msvc-version.conf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\toolchain.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\default_pre.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\win32\default_pre.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\resolve_config.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\exclusive_builds_post.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\default_post.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\build_pass.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\qml_debug.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\precompile_header.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\warn_on.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\qt.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\resources_functions.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\resources.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\moc.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\win32\opengl.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\uic.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\qmake_use.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\file_copies.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\win32\windows.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\testcase_targets.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\exceptions.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\yacc.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\lex.prf ZLMDemo.pro S:\Qt\5.15.2\msvc2019_64\lib\Qt5Multimediad.prl S:\Qt\5.15.2\msvc2019_64\lib\Qt5Widgetsd.prl S:\Qt\5.15.2\msvc2019_64\lib\Qt5Guid.prl S:\Qt\5.15.2\msvc2019_64\lib\Qt5Networkd.prl S:\Qt\5.15.2\msvc2019_64\lib\Qt5Cored.prl S:\Qt\5.15.2\msvc2019_64\lib\qtmaind.prl    S:\Qt\5.15.2\msvc2019_64\mkspecs\features\data\dummy.cpp ffmpegthread.h videoplayer.h widget.h  ffmpegthread.cpp main.cpp videoplayer.cpp widget.cpp widget.ui    
+	$(ZIP) ZLMDemo.zip $(SOURCES) $(DIST) ZLMDemo.pro S:\Qt\5.15.2\msvc2019_64\mkspecs\features\spec_pre.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\common\angle.conf S:\Qt\5.15.2\msvc2019_64\mkspecs\common\windows-desktop.conf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\win32\windows_vulkan_sdk.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\common\windows-vulkan.conf S:\Qt\5.15.2\msvc2019_64\mkspecs\common\msvc-desktop.conf S:\Qt\5.15.2\msvc2019_64\mkspecs\qconfig.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3danimation.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3danimation_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dcore.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dcore_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dextras.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dextras_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dinput.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dinput_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dlogic.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dlogic_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquick.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquick_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquickanimation.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquickanimation_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquickextras.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquickextras_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquickinput.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquickinput_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquickrender.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquickrender_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquickscene2d.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3dquickscene2d_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3drender.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_3drender_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_accessibility_support_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_axbase.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_axbase_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_axcontainer.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_axcontainer_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_axserver.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_axserver_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_bluetooth.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_bluetooth_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_bootstrap_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_concurrent.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_concurrent_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_core.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_core_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_dbus.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_dbus_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_designer.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_designer_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_designercomponents_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_edid_support_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_egl_support_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_fb_support_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_gamepad.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_gamepad_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_gui.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_gui_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_help.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_help_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_location.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_location_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_multimedia.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_multimedia_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_multimediawidgets.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_network.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_network_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_nfc.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_nfc_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_opengl.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_opengl_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_openglextensions.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_openglextensions_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_packetprotocol_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_positioning.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_positioning_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_positioningquick.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_positioningquick_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_printsupport.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_printsupport_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_qml.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_qml_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_qmldebug_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_qmldevtools_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_qmlmodels.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_qmlmodels_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_qmltest.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_qmltest_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_qmlworkerscript.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_quick.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_quick_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_quickparticles_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_quickshapes_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_quicktemplates2.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_quickwidgets.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_quickwidgets_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_remoteobjects.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_remoteobjects_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_repparser.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_repparser_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_scxml.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_scxml_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_sensors.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_sensors_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_serialbus.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_serialbus_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_serialport.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_serialport_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_sql.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_sql_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_svg.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_svg_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_testlib.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_testlib_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_texttospeech.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_texttospeech_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_theme_support_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_uiplugin.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_uitools.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_uitools_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_vulkan_support_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_webchannel.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_webchannel_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_websockets.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_websockets_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_webview.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_webview_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_widgets.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_widgets_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_winextras.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_winextras_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_xml.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_xml_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_xmlpatterns.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\modules\qt_lib_zlib_private.pri S:\Qt\5.15.2\msvc2019_64\mkspecs\features\qt_functions.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\qt_config.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\win32-msvc\qmake.conf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\spec_post.prf .qmake.stash S:\Qt\5.15.2\msvc2019_64\mkspecs\features\exclusive_builds.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\common\msvc-version.conf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\toolchain.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\default_pre.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\win32\default_pre.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\resolve_config.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\exclusive_builds_post.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\default_post.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\build_pass.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\qml_debug.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\precompile_header.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\warn_on.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\qt.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\resources_functions.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\resources.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\moc.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\win32\opengl.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\uic.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\qmake_use.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\file_copies.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\win32\windows.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\testcase_targets.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\exceptions.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\yacc.prf S:\Qt\5.15.2\msvc2019_64\mkspecs\features\lex.prf ZLMDemo.pro S:\Qt\5.15.2\msvc2019_64\lib\Qt5Multimediad.prl S:\Qt\5.15.2\msvc2019_64\lib\Qt5Widgetsd.prl S:\Qt\5.15.2\msvc2019_64\lib\Qt5Guid.prl S:\Qt\5.15.2\msvc2019_64\lib\Qt5Networkd.prl S:\Qt\5.15.2\msvc2019_64\lib\Qt5Cored.prl S:\Qt\5.15.2\msvc2019_64\lib\qtmaind.prl    S:\Qt\5.15.2\msvc2019_64\mkspecs\features\data\dummy.cpp ffmpegthread.h videodecoder.h videoplayer.h widget.h  ffmpegthread.cpp main.cpp videodecoder.cpp videoplayer.cpp widget.cpp widget.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\ffmpegthread.obj debug\main.obj debug\videoplayer.obj debug\widget.obj debug\moc_ffmpegthread.obj debug\moc_videoplayer.obj debug\moc_widget.obj
+	-$(DEL_FILE) debug\ffmpegthread.obj debug\main.obj debug\videodecoder.obj debug\videoplayer.obj debug\widget.obj debug\moc_ffmpegthread.obj debug\moc_videodecoder.obj debug\moc_videoplayer.obj debug\moc_widget.obj
 	-$(DEL_FILE) debug\ZLMDemo.vc.pdb debug\ZLMDemo.ilk debug\ZLMDemo.idb
 
 distclean: clean 
@@ -165,9 +171,9 @@ compiler_moc_predefs_clean:
 debug\moc_predefs.h: S:\Qt\5.15.2\msvc2019_64\mkspecs\features\data\dummy.cpp
 	cl -BxS:\Qt\5.15.2\msvc2019_64\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -Zi -MDd -std:c++17 -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E S:\Qt\5.15.2\msvc2019_64\mkspecs\features\data\dummy.cpp 2>NUL >debug\moc_predefs.h
 
-compiler_moc_header_make_all: debug\moc_ffmpegthread.cpp debug\moc_videoplayer.cpp debug\moc_widget.cpp
+compiler_moc_header_make_all: debug\moc_ffmpegthread.cpp debug\moc_videodecoder.cpp debug\moc_videoplayer.cpp debug\moc_widget.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) debug\moc_ffmpegthread.cpp debug\moc_videoplayer.cpp debug\moc_widget.cpp
+	-$(DEL_FILE) debug\moc_ffmpegthread.cpp debug\moc_videodecoder.cpp debug\moc_videoplayer.cpp debug\moc_widget.cpp
 debug\moc_ffmpegthread.cpp: ffmpegthread.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qprocess.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qiodevice.h \
@@ -280,6 +286,131 @@ debug\moc_ffmpegthread.cpp: ffmpegthread.h \
 		S:\Qt\5.15.2\msvc2019_64\bin\moc.exe
 	S:\Qt\5.15.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include D:/Qt/ZLMDemo/debug/moc_predefs.h -IS:/Qt/5.15.2/msvc2019_64/mkspecs/win32-msvc -ID:/Qt/ZLMDemo -ID:/Qt/ZLMDemo/3rd/ffmpeg/include -ID:/Qt/ZLMDemo/3rd/ZLMediaKit/include -ID:/Qt/ZLMDemo/3rd/ffmpeg/include/libavcodec -IS:/Qt/5.15.2/msvc2019_64/include -IS:/Qt/5.15.2/msvc2019_64/include/QtMultimedia -IS:/Qt/5.15.2/msvc2019_64/include/QtWidgets -IS:/Qt/5.15.2/msvc2019_64/include/QtGui -IS:/Qt/5.15.2/msvc2019_64/include/QtANGLE -IS:/Qt/5.15.2/msvc2019_64/include/QtNetwork -IS:/Qt/5.15.2/msvc2019_64/include/QtCore -I"D:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\include" -I"D:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\ATLMFC\include" -I"D:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt" ffmpegthread.h -o debug\moc_ffmpegthread.cpp
 
+debug\moc_videodecoder.cpp: videodecoder.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\QThread \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qthread.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobject.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobjectdefs.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qnamespace.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qglobal.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qconfig-bootstrapped.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qconfig.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qtcore-config.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsystemdetection.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qprocessordetection.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qcompilerdetection.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qtypeinfo.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsysinfo.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qlogging.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qflags.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qatomic.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qbasicatomic.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qatomic_bootstrap.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qgenericatomic.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qatomic_cxx11.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qatomic_msvc.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qglobalstatic.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qmutex.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qnumeric.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qversiontagging.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobjectdefs_impl.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qstring.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qchar.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qbytearray.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qrefcount.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qarraydata.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qstringliteral.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qstringalgorithms.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qstringview.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qstringbuilder.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qlist.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qalgorithms.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qiterator.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qhashfunctions.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qpair.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qvector.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qcontainertools_impl.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qpoint.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qbytearraylist.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qstringlist.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qregexp.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qstringmatcher.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qcoreevent.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qscopedpointer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qmetatype.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qvarlengtharray.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qcontainerfwd.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobject_impl.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdeadlinetimer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qelapsedtimer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\QImage \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qimage.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtguiglobal.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtgui-config.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qcolor.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qrgb.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qrgba64.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpaintdevice.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qwindowdefs.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qwindowdefs_win.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qrect.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qmargins.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsize.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpixelformat.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtransform.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qmatrix.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpolygon.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qregion.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdatastream.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qiodevice.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qline.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\QPixmap \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpixmap.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsharedpointer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qshareddata.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qhash.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsharedpointer_impl.h \
+		3rd\ZLMediaKit\include\libavformat\avformat.h \
+		3rd\ZLMediaKit\include\libavcodec\codec_par.h \
+		3rd\ZLMediaKit\include\libavutil\avutil.h \
+		3rd\ZLMediaKit\include\libavutil\common.h \
+		3rd\ZLMediaKit\include\libavutil\attributes.h \
+		3rd\ZLMediaKit\include\libavutil\error.h \
+		3rd\ZLMediaKit\include\libavutil\macros.h \
+		3rd\ZLMediaKit\include\libavutil\avconfig.h \
+		3rd\ZLMediaKit\include\libavutil\mem.h \
+		3rd\ZLMediaKit\include\libavutil\rational.h \
+		3rd\ZLMediaKit\include\libavutil\version.h \
+		3rd\ZLMediaKit\include\libavutil\mathematics.h \
+		3rd\ZLMediaKit\include\libavutil\intfloat.h \
+		3rd\ZLMediaKit\include\libavutil\log.h \
+		3rd\ZLMediaKit\include\libavutil\pixfmt.h \
+		3rd\ZLMediaKit\include\libavutil\channel_layout.h \
+		3rd\ZLMediaKit\include\libavcodec\codec_id.h \
+		3rd\ZLMediaKit\include\libavutil\samplefmt.h \
+		3rd\ZLMediaKit\include\libavcodec\version_major.h \
+		3rd\ZLMediaKit\include\libavcodec\defs.h \
+		3rd\ZLMediaKit\include\libavcodec\packet.h \
+		3rd\ZLMediaKit\include\libavutil\buffer.h \
+		3rd\ZLMediaKit\include\libavutil\dict.h \
+		3rd\ZLMediaKit\include\libavformat\avio.h \
+		3rd\ZLMediaKit\include\libavformat\version_major.h \
+		3rd\ZLMediaKit\include\libavformat\version.h \
+		3rd\ZLMediaKit\include\libavutil\frame.h \
+		3rd\ZLMediaKit\include\libavcodec\codec.h \
+		3rd\ZLMediaKit\include\libavutil\hwcontext.h \
+		3rd\ZLMediaKit\include\libavcodec\avcodec.h \
+		3rd\ZLMediaKit\include\libavcodec\version.h \
+		3rd\ZLMediaKit\include\libavcodec\codec_desc.h \
+		3rd\ZLMediaKit\include\libswscale\swscale.h \
+		3rd\ZLMediaKit\include\libswscale\version_major.h \
+		3rd\ZLMediaKit\include\libswscale\version.h \
+		3rd\ZLMediaKit\include\libavutil\imgutils.h \
+		3rd\ZLMediaKit\include\libavutil\pixdesc.h \
+		debug\moc_predefs.h \
+		S:\Qt\5.15.2\msvc2019_64\bin\moc.exe
+	S:\Qt\5.15.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include D:/Qt/ZLMDemo/debug/moc_predefs.h -IS:/Qt/5.15.2/msvc2019_64/mkspecs/win32-msvc -ID:/Qt/ZLMDemo -ID:/Qt/ZLMDemo/3rd/ffmpeg/include -ID:/Qt/ZLMDemo/3rd/ZLMediaKit/include -ID:/Qt/ZLMDemo/3rd/ffmpeg/include/libavcodec -IS:/Qt/5.15.2/msvc2019_64/include -IS:/Qt/5.15.2/msvc2019_64/include/QtMultimedia -IS:/Qt/5.15.2/msvc2019_64/include/QtWidgets -IS:/Qt/5.15.2/msvc2019_64/include/QtGui -IS:/Qt/5.15.2/msvc2019_64/include/QtANGLE -IS:/Qt/5.15.2/msvc2019_64/include/QtNetwork -IS:/Qt/5.15.2/msvc2019_64/include/QtCore -I"D:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\include" -I"D:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\ATLMFC\include" -I"D:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt" videodecoder.h -o debug\moc_videodecoder.cpp
+
 debug\moc_videoplayer.cpp: videoplayer.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\QWidget \
 		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qwidget.h \
@@ -384,43 +515,7 @@ debug\moc_videoplayer.cpp: videoplayer.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qfiledevice.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qvector2d.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtouchdevice.h \
-		3rd\ZLMediaKit\include\libavformat\avformat.h \
-		3rd\ZLMediaKit\include\libavcodec\codec_par.h \
-		3rd\ZLMediaKit\include\libavutil\avutil.h \
-		3rd\ZLMediaKit\include\libavutil\common.h \
-		3rd\ZLMediaKit\include\libavutil\attributes.h \
-		3rd\ZLMediaKit\include\libavutil\error.h \
-		3rd\ZLMediaKit\include\libavutil\macros.h \
-		3rd\ZLMediaKit\include\libavutil\avconfig.h \
-		3rd\ZLMediaKit\include\libavutil\mem.h \
-		3rd\ZLMediaKit\include\libavutil\rational.h \
-		3rd\ZLMediaKit\include\libavutil\version.h \
-		3rd\ZLMediaKit\include\libavutil\mathematics.h \
-		3rd\ZLMediaKit\include\libavutil\intfloat.h \
-		3rd\ZLMediaKit\include\libavutil\log.h \
-		3rd\ZLMediaKit\include\libavutil\pixfmt.h \
-		3rd\ZLMediaKit\include\libavutil\channel_layout.h \
-		3rd\ZLMediaKit\include\libavcodec\codec_id.h \
-		3rd\ZLMediaKit\include\libavutil\samplefmt.h \
-		3rd\ZLMediaKit\include\libavcodec\version_major.h \
-		3rd\ZLMediaKit\include\libavcodec\defs.h \
-		3rd\ZLMediaKit\include\libavcodec\packet.h \
-		3rd\ZLMediaKit\include\libavutil\buffer.h \
-		3rd\ZLMediaKit\include\libavutil\dict.h \
-		3rd\ZLMediaKit\include\libavformat\avio.h \
-		3rd\ZLMediaKit\include\libavformat\version_major.h \
-		3rd\ZLMediaKit\include\libavformat\version.h \
-		3rd\ZLMediaKit\include\libavutil\frame.h \
-		3rd\ZLMediaKit\include\libavcodec\codec.h \
-		3rd\ZLMediaKit\include\libavutil\hwcontext.h \
-		3rd\ZLMediaKit\include\libavcodec\avcodec.h \
-		3rd\ZLMediaKit\include\libavcodec\version.h \
-		3rd\ZLMediaKit\include\libavcodec\codec_desc.h \
-		3rd\ZLMediaKit\include\libswscale\swscale.h \
-		3rd\ZLMediaKit\include\libswscale\version_major.h \
-		3rd\ZLMediaKit\include\libswscale\version.h \
-		3rd\ZLMediaKit\include\libavutil\imgutils.h \
-		3rd\ZLMediaKit\include\libavutil\pixdesc.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\QImage \
 		debug\moc_predefs.h \
 		S:\Qt\5.15.2\msvc2019_64\bin\moc.exe
 	S:\Qt\5.15.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include D:/Qt/ZLMDemo/debug/moc_predefs.h -IS:/Qt/5.15.2/msvc2019_64/mkspecs/win32-msvc -ID:/Qt/ZLMDemo -ID:/Qt/ZLMDemo/3rd/ffmpeg/include -ID:/Qt/ZLMDemo/3rd/ZLMediaKit/include -ID:/Qt/ZLMDemo/3rd/ffmpeg/include/libavcodec -IS:/Qt/5.15.2/msvc2019_64/include -IS:/Qt/5.15.2/msvc2019_64/include/QtMultimedia -IS:/Qt/5.15.2/msvc2019_64/include/QtWidgets -IS:/Qt/5.15.2/msvc2019_64/include/QtGui -IS:/Qt/5.15.2/msvc2019_64/include/QtANGLE -IS:/Qt/5.15.2/msvc2019_64/include/QtNetwork -IS:/Qt/5.15.2/msvc2019_64/include/QtCore -I"D:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\include" -I"D:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\ATLMFC\include" -I"D:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt" videoplayer.h -o debug\moc_videoplayer.cpp
@@ -535,6 +630,8 @@ debug\moc_widget.cpp: widget.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qthread.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdeadlinetimer.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qelapsedtimer.h \
+		videoplayer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\QImage \
 		debug\moc_predefs.h \
 		S:\Qt\5.15.2\msvc2019_64\bin\moc.exe
 	S:\Qt\5.15.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include D:/Qt/ZLMDemo/debug/moc_predefs.h -IS:/Qt/5.15.2/msvc2019_64/mkspecs/win32-msvc -ID:/Qt/ZLMDemo -ID:/Qt/ZLMDemo/3rd/ffmpeg/include -ID:/Qt/ZLMDemo/3rd/ZLMediaKit/include -ID:/Qt/ZLMDemo/3rd/ffmpeg/include/libavcodec -IS:/Qt/5.15.2/msvc2019_64/include -IS:/Qt/5.15.2/msvc2019_64/include/QtMultimedia -IS:/Qt/5.15.2/msvc2019_64/include/QtWidgets -IS:/Qt/5.15.2/msvc2019_64/include/QtGui -IS:/Qt/5.15.2/msvc2019_64/include/QtANGLE -IS:/Qt/5.15.2/msvc2019_64/include/QtNetwork -IS:/Qt/5.15.2/msvc2019_64/include/QtCore -I"D:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\include" -I"D:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\ATLMFC\include" -I"D:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt" widget.h -o debug\moc_widget.cpp
@@ -547,148 +644,7 @@ compiler_uic_make_all: ui_widget.h
 compiler_uic_clean:
 	-$(DEL_FILE) ui_widget.h
 ui_widget.h: widget.ui \
-		S:\Qt\5.15.2\msvc2019_64\bin\uic.exe \
-		videoplayer.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\QWidget \
-		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qwidget.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qtwidgetsglobal.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtguiglobal.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qglobal.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qconfig-bootstrapped.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qconfig.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qtcore-config.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsystemdetection.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qprocessordetection.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qcompilerdetection.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qtypeinfo.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsysinfo.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qlogging.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qflags.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qatomic.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qbasicatomic.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qatomic_bootstrap.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qgenericatomic.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qatomic_cxx11.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qatomic_msvc.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qglobalstatic.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qmutex.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qnumeric.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qversiontagging.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtgui-config.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qtwidgets-config.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qwindowdefs.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobjectdefs.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qnamespace.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobjectdefs_impl.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qwindowdefs_win.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobject.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qstring.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qchar.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qbytearray.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qrefcount.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qarraydata.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qstringliteral.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qstringalgorithms.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qstringview.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qstringbuilder.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qlist.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qalgorithms.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qiterator.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qhashfunctions.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qpair.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qvector.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qcontainertools_impl.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qpoint.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qbytearraylist.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qstringlist.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qregexp.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qstringmatcher.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qcoreevent.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qscopedpointer.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qmetatype.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qvarlengtharray.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qcontainerfwd.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobject_impl.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qmargins.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpaintdevice.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qrect.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsize.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpalette.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qcolor.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qrgb.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qrgba64.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qbrush.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qmatrix.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpolygon.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qregion.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdatastream.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qiodevice.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qline.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtransform.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qimage.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpixelformat.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpixmap.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsharedpointer.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qshareddata.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qhash.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsharedpointer_impl.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qfont.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qfontmetrics.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qfontinfo.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qsizepolicy.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qcursor.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qkeysequence.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qevent.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qvariant.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qmap.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdebug.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qtextstream.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qlocale.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qset.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qcontiguouscache.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qurl.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qurlquery.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qfile.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qfiledevice.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qvector2d.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtouchdevice.h \
-		3rd\ZLMediaKit\include\libavformat\avformat.h \
-		3rd\ZLMediaKit\include\libavcodec\codec_par.h \
-		3rd\ZLMediaKit\include\libavutil\avutil.h \
-		3rd\ZLMediaKit\include\libavutil\common.h \
-		3rd\ZLMediaKit\include\libavutil\attributes.h \
-		3rd\ZLMediaKit\include\libavutil\error.h \
-		3rd\ZLMediaKit\include\libavutil\macros.h \
-		3rd\ZLMediaKit\include\libavutil\avconfig.h \
-		3rd\ZLMediaKit\include\libavutil\mem.h \
-		3rd\ZLMediaKit\include\libavutil\rational.h \
-		3rd\ZLMediaKit\include\libavutil\version.h \
-		3rd\ZLMediaKit\include\libavutil\mathematics.h \
-		3rd\ZLMediaKit\include\libavutil\intfloat.h \
-		3rd\ZLMediaKit\include\libavutil\log.h \
-		3rd\ZLMediaKit\include\libavutil\pixfmt.h \
-		3rd\ZLMediaKit\include\libavutil\channel_layout.h \
-		3rd\ZLMediaKit\include\libavcodec\codec_id.h \
-		3rd\ZLMediaKit\include\libavutil\samplefmt.h \
-		3rd\ZLMediaKit\include\libavcodec\version_major.h \
-		3rd\ZLMediaKit\include\libavcodec\defs.h \
-		3rd\ZLMediaKit\include\libavcodec\packet.h \
-		3rd\ZLMediaKit\include\libavutil\buffer.h \
-		3rd\ZLMediaKit\include\libavutil\dict.h \
-		3rd\ZLMediaKit\include\libavformat\avio.h \
-		3rd\ZLMediaKit\include\libavformat\version_major.h \
-		3rd\ZLMediaKit\include\libavformat\version.h \
-		3rd\ZLMediaKit\include\libavutil\frame.h \
-		3rd\ZLMediaKit\include\libavcodec\codec.h \
-		3rd\ZLMediaKit\include\libavutil\hwcontext.h \
-		3rd\ZLMediaKit\include\libavcodec\avcodec.h \
-		3rd\ZLMediaKit\include\libavcodec\version.h \
-		3rd\ZLMediaKit\include\libavcodec\codec_desc.h \
-		3rd\ZLMediaKit\include\libswscale\swscale.h \
-		3rd\ZLMediaKit\include\libswscale\version_major.h \
-		3rd\ZLMediaKit\include\libswscale\version.h \
-		3rd\ZLMediaKit\include\libavutil\imgutils.h \
-		3rd\ZLMediaKit\include\libavutil\pixdesc.h
+		S:\Qt\5.15.2\msvc2019_64\bin\uic.exe
 	S:\Qt\5.15.2\msvc2019_64\bin\uic.exe widget.ui -o ui_widget.h
 
 compiler_yacc_decl_make_all:
@@ -922,6 +878,8 @@ debug\main.obj: main.cpp widget.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qthread.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdeadlinetimer.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qelapsedtimer.h \
+		videoplayer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\QImage \
 		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\QApplication \
 		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qapplication.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qcoreapplication.h \
@@ -929,6 +887,136 @@ debug\main.obj: main.cpp widget.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qdesktopwidget.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qguiapplication.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qinputmethod.h
+
+debug\videodecoder.obj: videodecoder.cpp VideoDecoder.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\QThread \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qthread.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobject.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobjectdefs.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qnamespace.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qglobal.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qconfig-bootstrapped.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qconfig.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qtcore-config.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsystemdetection.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qprocessordetection.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qcompilerdetection.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qtypeinfo.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsysinfo.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qlogging.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qflags.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qatomic.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qbasicatomic.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qatomic_bootstrap.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qgenericatomic.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qatomic_cxx11.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qatomic_msvc.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qglobalstatic.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qmutex.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qnumeric.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qversiontagging.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobjectdefs_impl.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qstring.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qchar.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qbytearray.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qrefcount.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qarraydata.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qstringliteral.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qstringalgorithms.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qstringview.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qstringbuilder.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qlist.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qalgorithms.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qiterator.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qhashfunctions.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qpair.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qvector.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qcontainertools_impl.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qpoint.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qbytearraylist.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qstringlist.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qregexp.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qstringmatcher.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qcoreevent.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qscopedpointer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qmetatype.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qvarlengtharray.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qcontainerfwd.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobject_impl.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdeadlinetimer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qelapsedtimer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\QImage \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qimage.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtguiglobal.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtgui-config.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qcolor.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qrgb.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qrgba64.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpaintdevice.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qwindowdefs.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qwindowdefs_win.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qrect.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qmargins.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsize.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpixelformat.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtransform.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qmatrix.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpolygon.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qregion.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdatastream.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qiodevice.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qline.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\QPixmap \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpixmap.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsharedpointer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qshareddata.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qhash.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsharedpointer_impl.h \
+		3rd\ZLMediaKit\include\libavformat\avformat.h \
+		3rd\ZLMediaKit\include\libavcodec\codec_par.h \
+		3rd\ZLMediaKit\include\libavutil\avutil.h \
+		3rd\ZLMediaKit\include\libavutil\common.h \
+		3rd\ZLMediaKit\include\libavutil\attributes.h \
+		3rd\ZLMediaKit\include\libavutil\error.h \
+		3rd\ZLMediaKit\include\libavutil\macros.h \
+		3rd\ZLMediaKit\include\libavutil\avconfig.h \
+		3rd\ZLMediaKit\include\libavutil\mem.h \
+		3rd\ZLMediaKit\include\libavutil\rational.h \
+		3rd\ZLMediaKit\include\libavutil\version.h \
+		3rd\ZLMediaKit\include\libavutil\mathematics.h \
+		3rd\ZLMediaKit\include\libavutil\intfloat.h \
+		3rd\ZLMediaKit\include\libavutil\log.h \
+		3rd\ZLMediaKit\include\libavutil\pixfmt.h \
+		3rd\ZLMediaKit\include\libavutil\channel_layout.h \
+		3rd\ZLMediaKit\include\libavcodec\codec_id.h \
+		3rd\ZLMediaKit\include\libavutil\samplefmt.h \
+		3rd\ZLMediaKit\include\libavcodec\version_major.h \
+		3rd\ZLMediaKit\include\libavcodec\defs.h \
+		3rd\ZLMediaKit\include\libavcodec\packet.h \
+		3rd\ZLMediaKit\include\libavutil\buffer.h \
+		3rd\ZLMediaKit\include\libavutil\dict.h \
+		3rd\ZLMediaKit\include\libavformat\avio.h \
+		3rd\ZLMediaKit\include\libavformat\version_major.h \
+		3rd\ZLMediaKit\include\libavformat\version.h \
+		3rd\ZLMediaKit\include\libavutil\frame.h \
+		3rd\ZLMediaKit\include\libavcodec\codec.h \
+		3rd\ZLMediaKit\include\libavutil\hwcontext.h \
+		3rd\ZLMediaKit\include\libavcodec\avcodec.h \
+		3rd\ZLMediaKit\include\libavcodec\version.h \
+		3rd\ZLMediaKit\include\libavcodec\codec_desc.h \
+		3rd\ZLMediaKit\include\libswscale\swscale.h \
+		3rd\ZLMediaKit\include\libswscale\version_major.h \
+		3rd\ZLMediaKit\include\libswscale\version.h \
+		3rd\ZLMediaKit\include\libavutil\imgutils.h \
+		3rd\ZLMediaKit\include\libavutil\pixdesc.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\QDebug \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdebug.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qmap.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qtextstream.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qlocale.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qvariant.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qset.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qcontiguouscache.h
 
 debug\videoplayer.obj: videoplayer.cpp VideoPlayer.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\QWidget \
@@ -1034,6 +1122,13 @@ debug\videoplayer.obj: videoplayer.cpp VideoPlayer.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qfiledevice.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qvector2d.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtouchdevice.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\QImage \
+		VideoDecoder.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\QThread \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qthread.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdeadlinetimer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qelapsedtimer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\QPixmap \
 		3rd\ZLMediaKit\include\libavformat\avformat.h \
 		3rd\ZLMediaKit\include\libavcodec\codec_par.h \
 		3rd\ZLMediaKit\include\libavutil\avutil.h \
@@ -1071,12 +1166,8 @@ debug\videoplayer.obj: videoplayer.cpp VideoPlayer.h \
 		3rd\ZLMediaKit\include\libswscale\version.h \
 		3rd\ZLMediaKit\include\libavutil\imgutils.h \
 		3rd\ZLMediaKit\include\libavutil\pixdesc.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\QLabel \
 		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qlabel.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qframe.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\QTimer \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qtimer.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qbasictimer.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\QVBoxLayout \
 		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qboxlayout.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qlayout.h \
@@ -1194,6 +1285,8 @@ debug\widget.obj: widget.cpp widget.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qthread.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdeadlinetimer.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qelapsedtimer.h \
+		videoplayer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\QImage \
 		ui_widget.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\QVariant \
 		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\QApplication \
@@ -1208,9 +1301,11 @@ debug\widget.obj: widget.cpp widget.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qlayout.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qlayoutitem.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qgridlayout.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\QLabel \
+		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qlabel.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qframe.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\QLineEdit \
 		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qlineedit.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qframe.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtextcursor.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtextformat.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpen.h \
@@ -1222,6 +1317,8 @@ debug\widget.obj: widget.cpp widget.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\QVBoxLayout
 
 debug\moc_ffmpegthread.obj: debug\moc_ffmpegthread.cpp 
+
+debug\moc_videodecoder.obj: debug\moc_videodecoder.cpp 
 
 debug\moc_videoplayer.obj: debug\moc_videoplayer.cpp 
 

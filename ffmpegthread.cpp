@@ -1,14 +1,18 @@
 #include "ffmpegthread.h"
+#include <QDebug>
 
-
-
-ffmpegThread::ffmpegThread():process(nullptr) {}
+ffmpegThread::ffmpegThread() : process(nullptr) {}
 
 ffmpegThread::~ffmpegThread()
 {
     if (process != nullptr) {
-        stopFFmpge();
+        stopFFmpeg();
     }
+}
+
+void ffmpegThread::setUrl(const QString &nurl)
+{
+    url=nurl;
 }
 
 void ffmpegThread::run()
@@ -23,10 +27,17 @@ void ffmpegThread::run()
     arguments << "-f" << "gdigrab"
               << "-framerate" << "30"
               << "-i" << "desktop"
-              << "-video_size" << "2560x1600"
+              << "-video_size" << "2560x1440"
+              << "-probesize" << "10M"
+              << "-analyzeduration" << "10M"
+              << "-c:v" << "libx264"
+              << "-preset" << "ultrafast"
+              << "-pix_fmt" << "yuv420p"
               << "-f" << "rtsp"
+              << "-b:v" << "2M"
               << "-rtsp_transport" << "tcp"
-              << "rtsp://127.0.0.1/live/test";
+              << url;
+
 
     process->start(program, arguments);
 
@@ -34,15 +45,12 @@ void ffmpegThread::run()
         qDebug() << "Failed to start FFmpeg process.";
         return;
     }
-
-    /*process->waitForFinished(-1);*/ // Wait indefinitely until the process finishes
 }
 
-void ffmpegThread::stopFFmpge()
+void ffmpegThread::stopFFmpeg()
 {
     if (process) {
         process->kill();
-        // process->terminate();
         process->waitForFinished();
         delete process;
         process = nullptr;
@@ -51,11 +59,10 @@ void ffmpegThread::stopFFmpge()
 
 void ffmpegThread::handleOutput()
 {
-    qDebug()<< " output :" << process->readAllStandardOutput();
+    qDebug() << "output :" << process->readAllStandardOutput();
 }
 
 void ffmpegThread::handleError()
 {
-    qDebug()<<"output: " << process->readAllStandardError();
+    qDebug() << "error :" << process->readAllStandardError();
 }
-

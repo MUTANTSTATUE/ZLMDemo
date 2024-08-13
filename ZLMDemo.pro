@@ -12,11 +12,13 @@ CONFIG += c++17
 SOURCES += \
     ffmpegthread.cpp \
     main.cpp \
+    videodecoder.cpp \
     videoplayer.cpp \
     widget.cpp
 
 HEADERS += \
     ffmpegthread.h \
+    videodecoder.h \
     videoplayer.h \
     widget.h
 

@@ -2,18 +2,11 @@
 #define VIDEOPLAYER_H
 
 #include <QWidget>
+#include <QImage>
 
 class QLabel;
 class QTimer;
-
-extern "C" {
-#include <libavformat/avformat.h>
-#include <libavcodec/avcodec.h>
-#include <libavutil/avutil.h>
-#include <libswscale/swscale.h>
-#include <libavutil/imgutils.h>
-}
-
+class VideoDecoder;
 
 class VideoPlayer : public QWidget
 {
@@ -25,18 +18,11 @@ public:
     void playStream(const QString &url);
 
 private slots:
-    void updateFrame();
-
+    void onFrameReady(const QImage &image);
+    void resizeEvent(QResizeEvent *event);
 private:
     QLabel *label;
-    QTimer *timer;
-    AVFormatContext *formatContext;
-    AVCodecContext *codecContext;
-    SwsContext *swsContext;
-    int videoStreamIndex;
-    AVFrame *frame;
-    AVFrame *rgbFrame;
-    uint8_t *buffer;
+    VideoDecoder *decoder;
 };
 
 #endif // VIDEOPLAYER_H
