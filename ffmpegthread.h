@@ -1,31 +1,51 @@
 #ifndef FFMPEGTHREAD_H
 #define FFMPEGTHREAD_H
 
-#include "qprocess.h"
 #include <QThread>
-#include <qwidget.h>
-#include "qdebug.h"
-#include <signal.h>
+#include <QImage>
+extern "C" {
+#include <libavformat/avformat.h>
+#include <libavcodec/avcodec.h>
+#include <libavdevice/avdevice.h>
+#include <libswscale/swscale.h>
+#include <libavutil/error.h>
+#include <libavutil/imgutils.h>
+}
 
-class ffmpegThread :public QWidget
+class ffmpegThread : public QThread
 {
     Q_OBJECT
 public:
-    ffmpegThread();
-
+    explicit ffmpegThread(QObject *parent = nullptr);
     ~ffmpegThread();
 
-    void setUrl(const QString& nurl);
-    void run();
+    void setUrl(const QString &nurl);
+    void stop();
 
-public slots:
-    void stopFFmpeg();
+signals:
+    void frameReady(const QImage &image);
+    void audioDataReady(const QByteArray &data);
 
-private slots:
-    void handleOutput();
-    void handleError();
+protected:
+    void run() override;  // QThread 的 run 方法
+
 private:
-    QProcess* process;
+    bool initializeFFmpeg();
+    void cleanupFFmpeg();
+    void captureAndStream();
+    QStringList listAudioInputDevices();
+
+
+    AVFormatContext *videoFormatContext;
+    AVFormatContext *audioFormatContext;
+    AVCodecContext *videoCodecContext;
+    AVCodecContext *audioCodecContext;
+    AVFrame *frame;
+    AVPacket *packet;
+    SwsContext *swsCtx;
+    int videoStreamIndex;
+    int audioStreamIndex;
+    bool running;
     QString url;
 };
 

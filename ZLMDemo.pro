@@ -28,7 +28,7 @@ FORMS += \
 #包含头文件
 INCLUDEPATH += $$PWD/3rd/ffmpeg/include
 #链接库文件
-LIBS += -L$$PWD/3rd/ffmpeg/lib -lavformat -lavfilter -lavcodec -lswresample -lswscale -lavutil
+LIBS += -L$$PWD/3rd/ffmpeg/lib -lavformat -lavfilter -lavcodec -lswresample -lswscale -lavutil -lavdevice
 
 
 # Default rules for deployment.

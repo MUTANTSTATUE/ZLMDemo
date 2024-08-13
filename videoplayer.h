@@ -16,9 +16,9 @@ public:
     ~VideoPlayer();
 
     void playStream(const QString &url);
-
-private slots:
+public slots:
     void onFrameReady(const QImage &image);
+private slots:
     void resizeEvent(QResizeEvent *event);
 private:
     QLabel *label;

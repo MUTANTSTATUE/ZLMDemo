@@ -1,3 +1,5 @@
+#include "qdebug.h"
+#include "qprocess.h"
 #include "widget.h"
 
 #include <QApplication>
@@ -21,7 +23,7 @@ int main(int argc, char *argv[])
     }
     QString relativePath = "3rd/ZLMediaKit/bin/MediaServer.exe";
     QString programPath = appDir + "/" + relativePath;
-    qDebug()<<programPath;
+    //qDebug()<<programPath;
 
     // 创建 QProcess 对象
     QProcess process;
