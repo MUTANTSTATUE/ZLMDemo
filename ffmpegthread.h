@@ -10,6 +10,7 @@ extern "C" {
 #include <libswscale/swscale.h>
 #include <libavutil/error.h>
 #include <libavutil/imgutils.h>
+#include <libavutil/opt.h>
 }
 
 class ffmpegThread : public QThread
@@ -36,15 +37,7 @@ private:
     QStringList listAudioInputDevices();
 
 
-    AVFormatContext *videoFormatContext;
-    AVFormatContext *audioFormatContext;
-    AVCodecContext *videoCodecContext;
-    AVCodecContext *audioCodecContext;
-    AVFrame *frame;
-    AVPacket *packet;
-    SwsContext *swsCtx;
-    int videoStreamIndex;
-    int audioStreamIndex;
+
     bool running;
     QString url;
 };

@@ -99,7 +99,7 @@ public:
     {
         Widget->setWindowTitle(QCoreApplication::translate("Widget", "Widget", nullptr));
         label->setText(QCoreApplication::translate("Widget", "\346\216\250\346\265\201\345\234\260\345\235\200\357\274\232", nullptr));
-        lineEditPushUrl->setText(QCoreApplication::translate("Widget", "rtmp://127.0.0.1/live/test", nullptr));
+        lineEditPushUrl->setText(QCoreApplication::translate("Widget", "rtsp://127.0.0.1/live/test", nullptr));
         pushButtonPush->setText(QCoreApplication::translate("Widget", "\344\270\212\344\274\240", nullptr));
         label_2->setText(QCoreApplication::translate("Widget", "\346\222\255\346\224\276\345\234\260\345\235\200\357\274\232", nullptr));
         lineEditPlayUrl->setText(QCoreApplication::translate("Widget", "rtsp://127.0.0.1/live/test", nullptr));

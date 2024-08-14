@@ -19,7 +19,7 @@ CXXFLAGS      = -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStri
 INCPATH       = -I. -I3rd\ffmpeg\include -I3rd\ZLMediaKit\include -I3rd\ffmpeg\include\libavcodec -IS:\Qt\5.15.2\msvc2019_64\include -IS:\Qt\5.15.2\msvc2019_64\include\QtMultimedia -IS:\Qt\5.15.2\msvc2019_64\include\QtWidgets -IS:\Qt\5.15.2\msvc2019_64\include\QtGui -IS:\Qt\5.15.2\msvc2019_64\include\QtANGLE -IS:\Qt\5.15.2\msvc2019_64\include\QtNetwork -IS:\Qt\5.15.2\msvc2019_64\include\QtCore -Idebug -I. -I/include -IS:\Qt\5.15.2\msvc2019_64\mkspecs\win32-msvc 
 LINKER        = link
 LFLAGS        = /NOLOGO /DYNAMICBASE /NXCOMPAT /DEBUG /SUBSYSTEM:WINDOWS "/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'"
-LIBS          = /LIBPATH:D:\Qt\ZLMDemo\3rd\ffmpeg\lib D:\Qt\ZLMDemo\3rd\ffmpeg\lib\avformat.lib D:\Qt\ZLMDemo\3rd\ffmpeg\lib\avfilter.lib D:\Qt\ZLMDemo\3rd\ffmpeg\lib\swresample.lib D:\Qt\ZLMDemo\3rd\ffmpeg\lib\swscale.lib D:\Qt\ZLMDemo\3rd\ffmpeg\lib\avutil.lib D:\Qt\ZLMDemo\3rd\ffmpeg\lib\avdevice.lib /LIBPATH:D:\Qt\ZLMDemo\3rd\ZLMediaKit D:\Qt\ZLMDemo\3rd\ZLMediaKit\mk_apid.lib /LIBPATH:D:\Qt\ZLMDemo\3rd\ffmpeg\lib D:\Qt\ZLMDemo\3rd\ffmpeg\lib\avcodec.lib S:\Qt\5.15.2\msvc2019_64\lib\Qt5Multimediad.lib S:\Qt\5.15.2\msvc2019_64\lib\Qt5Widgetsd.lib S:\Qt\5.15.2\msvc2019_64\lib\Qt5Guid.lib S:\Qt\5.15.2\msvc2019_64\lib\Qt5Networkd.lib S:\Qt\5.15.2\msvc2019_64\lib\Qt5Cored.lib  S:\Qt\5.15.2\msvc2019_64\lib\qtmaind.lib /LIBPATH:C:\openssl\lib /LIBPATH:C:\Utils\my_sql\mysql-5.7.25-winx64\lib /LIBPATH:C:\Utils\postgresql\pgsql\lib shell32.lib 
+LIBS          = /LIBPATH:D:\Qt\ZLMDemo\3rd\ffmpeg\lib D:\Qt\ZLMDemo\3rd\ffmpeg\lib\avformat.lib D:\Qt\ZLMDemo\3rd\ffmpeg\lib\avfilter.lib D:\Qt\ZLMDemo\3rd\ffmpeg\lib\swresample.lib D:\Qt\ZLMDemo\3rd\ffmpeg\lib\swscale.lib D:\Qt\ZLMDemo\3rd\ffmpeg\lib\avutil.lib D:\Qt\ZLMDemo\3rd\ffmpeg\lib\avdevice.lib D:\Qt\ZLMDemo\3rd\ffmpeg\lib\postproc.lib /LIBPATH:D:\Qt\ZLMDemo\3rd\ZLMediaKit D:\Qt\ZLMDemo\3rd\ZLMediaKit\mk_apid.lib /LIBPATH:D:\Qt\ZLMDemo\3rd\ffmpeg\lib D:\Qt\ZLMDemo\3rd\ffmpeg\lib\avcodec.lib S:\Qt\5.15.2\msvc2019_64\lib\Qt5Multimediad.lib S:\Qt\5.15.2\msvc2019_64\lib\Qt5Widgetsd.lib S:\Qt\5.15.2\msvc2019_64\lib\Qt5Guid.lib S:\Qt\5.15.2\msvc2019_64\lib\Qt5Networkd.lib S:\Qt\5.15.2\msvc2019_64\lib\Qt5Cored.lib  S:\Qt\5.15.2\msvc2019_64\lib\qtmaind.lib /LIBPATH:C:\openssl\lib /LIBPATH:C:\Utils\my_sql\mysql-5.7.25-winx64\lib /LIBPATH:C:\Utils\postgresql\pgsql\lib shell32.lib 
 QMAKE         = S:\Qt\5.15.2\msvc2019_64\bin\qmake.exe
 DEL_FILE      = del
 CHK_DIR_EXISTS= if not exist
@@ -175,10 +175,11 @@ compiler_moc_header_make_all: debug\moc_ffmpegthread.cpp debug\moc_videodecoder.
 compiler_moc_header_clean:
 	-$(DEL_FILE) debug\moc_ffmpegthread.cpp debug\moc_videodecoder.cpp debug\moc_videoplayer.cpp debug\moc_widget.cpp
 debug\moc_ffmpegthread.cpp: ffmpegthread.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\QWidget \
-		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qwidget.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qtwidgetsglobal.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtguiglobal.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\QThread \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qthread.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobject.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobjectdefs.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qnamespace.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qglobal.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qconfig-bootstrapped.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qconfig.h \
@@ -200,14 +201,7 @@ debug\moc_ffmpegthread.cpp: ffmpegthread.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qmutex.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qnumeric.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qversiontagging.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtgui-config.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qtwidgets-config.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qwindowdefs.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobjectdefs.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qnamespace.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobjectdefs_impl.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qwindowdefs_win.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobject.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qstring.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qchar.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qbytearray.h \
@@ -235,49 +229,29 @@ debug\moc_ffmpegthread.cpp: ffmpegthread.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qvarlengtharray.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qcontainerfwd.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobject_impl.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qmargins.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpaintdevice.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qrect.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsize.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpalette.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdeadlinetimer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qelapsedtimer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\QImage \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qimage.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtguiglobal.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtgui-config.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qcolor.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qrgb.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qrgba64.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qbrush.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpaintdevice.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qwindowdefs.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qwindowdefs_win.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qrect.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qmargins.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsize.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpixelformat.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtransform.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qmatrix.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpolygon.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qregion.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdatastream.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qiodevice.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qline.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtransform.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qimage.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpixelformat.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpixmap.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsharedpointer.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qshareddata.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qhash.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsharedpointer_impl.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qfont.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qfontmetrics.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qfontinfo.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qsizepolicy.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qcursor.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qkeysequence.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qevent.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qvariant.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qmap.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdebug.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qtextstream.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qlocale.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qset.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qcontiguouscache.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qurl.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qurlquery.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qfile.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qfiledevice.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qvector2d.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtouchdevice.h \
 		3rd\ZLMediaKit\include\libavformat\avformat.h \
 		3rd\ZLMediaKit\include\libavcodec\codec_par.h \
 		3rd\ZLMediaKit\include\libavutil\avutil.h \
@@ -662,6 +636,11 @@ debug\moc_widget.cpp: widget.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qvector2d.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtouchdevice.h \
 		ffmpegthread.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\QThread \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qthread.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdeadlinetimer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qelapsedtimer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\QImage \
 		3rd\ZLMediaKit\include\libavformat\avformat.h \
 		3rd\ZLMediaKit\include\libavcodec\codec_par.h \
 		3rd\ZLMediaKit\include\libavutil\avutil.h \
@@ -704,7 +683,6 @@ debug\moc_widget.cpp: widget.h \
 		3rd\ZLMediaKit\include\libavutil\imgutils.h \
 		3rd\ZLMediaKit\include\libavutil\pixdesc.h \
 		videoplayer.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\QImage \
 		debug\moc_predefs.h \
 		S:\Qt\5.15.2\msvc2019_64\bin\moc.exe
 	S:\Qt\5.15.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include D:/Qt/ZLMDemo/debug/moc_predefs.h -IS:/Qt/5.15.2/msvc2019_64/mkspecs/win32-msvc -ID:/Qt/ZLMDemo -ID:/Qt/ZLMDemo/3rd/ffmpeg/include -ID:/Qt/ZLMDemo/3rd/ZLMediaKit/include -ID:/Qt/ZLMDemo/3rd/ffmpeg/include/libavcodec -IS:/Qt/5.15.2/msvc2019_64/include -IS:/Qt/5.15.2/msvc2019_64/include/QtMultimedia -IS:/Qt/5.15.2/msvc2019_64/include/QtWidgets -IS:/Qt/5.15.2/msvc2019_64/include/QtGui -IS:/Qt/5.15.2/msvc2019_64/include/QtANGLE -IS:/Qt/5.15.2/msvc2019_64/include/QtNetwork -IS:/Qt/5.15.2/msvc2019_64/include/QtCore -I"D:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\include" -I"D:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\ATLMFC\include" -I"D:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt" widget.h -o debug\moc_widget.cpp
@@ -732,11 +710,12 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
-debug\ffmpegthread.obj: ffmpegthread.cpp ffmpegthread.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\QWidget \
-		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qwidget.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qtwidgetsglobal.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtguiglobal.h \
+debug\ffmpegthread.obj: ffmpegthread.cpp ffmpegThread.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\QThread \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qthread.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobject.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobjectdefs.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qnamespace.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qglobal.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qconfig-bootstrapped.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qconfig.h \
@@ -758,14 +737,7 @@ debug\ffmpegthread.obj: ffmpegthread.cpp ffmpegthread.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qmutex.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qnumeric.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qversiontagging.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtgui-config.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qtwidgets-config.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qwindowdefs.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobjectdefs.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qnamespace.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobjectdefs_impl.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qwindowdefs_win.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobject.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qstring.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qchar.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qbytearray.h \
@@ -793,49 +765,29 @@ debug\ffmpegthread.obj: ffmpegthread.cpp ffmpegthread.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qvarlengtharray.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qcontainerfwd.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qobject_impl.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qmargins.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpaintdevice.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qrect.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsize.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpalette.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdeadlinetimer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qelapsedtimer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\QImage \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qimage.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtguiglobal.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtgui-config.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qcolor.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qrgb.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qrgba64.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qbrush.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpaintdevice.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qwindowdefs.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qwindowdefs_win.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qrect.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qmargins.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsize.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpixelformat.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtransform.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qmatrix.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpolygon.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qregion.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdatastream.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qiodevice.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qline.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtransform.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qimage.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpixelformat.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qpixmap.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsharedpointer.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qshareddata.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qhash.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsharedpointer_impl.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qfont.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qfontmetrics.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qfontinfo.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qsizepolicy.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qcursor.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qkeysequence.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qevent.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qvariant.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qmap.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdebug.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qtextstream.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qlocale.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qset.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qcontiguouscache.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qurl.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qurlquery.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qfile.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qfiledevice.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qvector2d.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtouchdevice.h \
 		3rd\ZLMediaKit\include\libavformat\avformat.h \
 		3rd\ZLMediaKit\include\libavcodec\codec_par.h \
 		3rd\ZLMediaKit\include\libavutil\avutil.h \
@@ -878,10 +830,17 @@ debug\ffmpegthread.obj: ffmpegthread.cpp ffmpegthread.h \
 		3rd\ZLMediaKit\include\libavutil\imgutils.h \
 		3rd\ZLMediaKit\include\libavutil\pixdesc.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\QDebug \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\QThread \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qthread.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdeadlinetimer.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qelapsedtimer.h
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdebug.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qhash.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qmap.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qtextstream.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qlocale.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qvariant.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qshareddata.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qset.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qcontiguouscache.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsharedpointer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qsharedpointer_impl.h
 
 debug\main.obj: main.cpp S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdebug.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qalgorithms.h \
@@ -989,6 +948,11 @@ debug\main.obj: main.cpp S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdebug.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qvector2d.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtouchdevice.h \
 		ffmpegthread.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\QThread \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qthread.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdeadlinetimer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qelapsedtimer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\QImage \
 		3rd\ZLMediaKit\include\libavformat\avformat.h \
 		3rd\ZLMediaKit\include\libavcodec\codec_par.h \
 		3rd\ZLMediaKit\include\libavutil\avutil.h \
@@ -1031,7 +995,6 @@ debug\main.obj: main.cpp S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdebug.h \
 		3rd\ZLMediaKit\include\libavutil\imgutils.h \
 		3rd\ZLMediaKit\include\libavutil\pixdesc.h \
 		videoplayer.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\QImage \
 		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\QApplication \
 		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qapplication.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qcoreapplication.h \
@@ -1434,6 +1397,11 @@ debug\widget.obj: widget.cpp widget.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qvector2d.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qtouchdevice.h \
 		ffmpegthread.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\QThread \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qthread.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qdeadlinetimer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\qelapsedtimer.h \
+		S:\Qt\5.15.2\msvc2019_64\include\QtGui\QImage \
 		3rd\ZLMediaKit\include\libavformat\avformat.h \
 		3rd\ZLMediaKit\include\libavcodec\codec_par.h \
 		3rd\ZLMediaKit\include\libavutil\avutil.h \
@@ -1476,7 +1444,6 @@ debug\widget.obj: widget.cpp widget.h \
 		3rd\ZLMediaKit\include\libavutil\imgutils.h \
 		3rd\ZLMediaKit\include\libavutil\pixdesc.h \
 		videoplayer.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtGui\QImage \
 		ui_widget.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtCore\QVariant \
 		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\QApplication \
@@ -1504,7 +1471,8 @@ debug\widget.obj: widget.cpp widget.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qpushbutton.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\qabstractbutton.h \
 		S:\Qt\5.15.2\msvc2019_64\include\QtGui\qicon.h \
-		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\QVBoxLayout
+		S:\Qt\5.15.2\msvc2019_64\include\QtWidgets\QVBoxLayout \
+		S:\Qt\5.15.2\msvc2019_64\include\QtCore\QDebug
 
 debug\moc_ffmpegthread.obj: debug\moc_ffmpegthread.cpp 
 
